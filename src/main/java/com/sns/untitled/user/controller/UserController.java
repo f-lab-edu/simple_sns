@@ -2,9 +2,7 @@ package com.sns.untitled.user.controller;
 
 import com.sns.untitled.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -16,7 +14,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/hello/{name}")
+    @GetMapping("/hello/{name}")
+    @ResponseBody
     public String hello(@PathVariable String name){
         return userService.hello(name);
     }
