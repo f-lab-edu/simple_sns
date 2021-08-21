@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sns.untitled.user.mapper.MemberMapper">
+    <!--    <insert id="insertName" parameterType="String">-->
+    <!--        INSERT INTO user_dump(user_name)-->
+    <!--        VALUES(#{name})-->
+    <!--    </insert>-->
+    <select id="checkDuplicated" resultType="int">
+        select count(*)
+        from user
+        where user.id = #{id};
+    </select>
+    <insert id="register">
+        insert into user
+        (id, password, name, email, birth)
+        values
+        (#{id}, #{password}, #{name}, #{email}, #{birth})
+    </insert>
+</mapper>
